@@ -24,13 +24,13 @@ def train_model(features_path, model_save_path='model'):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Scale features
-    
-    
-    
+
+
+
 
     # Save feature names and scaler
     os.makedirs(model_save_path, exist_ok=True)
-    joblib.dump(scaler, f'{model_save_path}/scaler.pkl')
+    joblib.dump(scaler, f'/home/pslearner/Desktop/ai-threat-detection/model/scaler.pkl')
 
     # Build the model
     model = Sequential([
@@ -69,7 +69,7 @@ def train_model(features_path, model_save_path='model'):
     print(f'\nTest accuracy: {accuracy:.4f}')
 
     # Save the model
-    model.save(f'{model_save_path}/threat_detection_model')
+    model.save(f'/home/pslearner/Desktop/ai-threat-detection/model/threat_detection_model.keras')
 
     # Plot training history
     plt.figure(figsize=(12, 4))
@@ -91,11 +91,11 @@ def train_model(features_path, model_save_path='model'):
     plt.legend(['Train', 'Validation'], loc='upper left')
 
     plt.tight_layout()
-    
+
 
     return model, scaler
 
 if __name__ == "__main__":
     print("TensorFlow version:", tf.__version__)
-    model, scaler = train_model('logs/features.csv')
+    model, scaler = train_model('/home/pslearner/Desktop/ai-threat-detection/logs/features.csv')
     print("Model training done, model saved to 'model/threat_detection_model'")
