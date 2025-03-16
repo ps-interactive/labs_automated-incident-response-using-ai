@@ -30,7 +30,7 @@ def train_model(features_path, model_save_path='model'):
 
     # Save feature names and scaler
     os.makedirs(model_save_path, exist_ok=True)
-    joblib.dump(scaler, f'{model_save_path}/scaler.pkl')
+    joblib.dump(scaler, f'model/scaler.pkl')
 
     # Build the model
     model = Sequential([
@@ -69,7 +69,7 @@ def train_model(features_path, model_save_path='model'):
     print(f'\nTest accuracy: {accuracy:.4f}')
 
     # Save the model
-    model.save(f'{model_save_path}/threat_detection_model')
+    model.save(f'model/threat_detection_model')
 
     # Plot training history
     plt.figure(figsize=(12, 4))
@@ -91,7 +91,7 @@ def train_model(features_path, model_save_path='model'):
     plt.legend(['Train', 'Validation'], loc='upper left')
 
     plt.tight_layout()
-    plt.savefig(f'{model_save_path}/training_history.png')
+    plt.savefig(f'model/training_history.png')
 
     return model, scaler
 
