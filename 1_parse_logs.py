@@ -6,8 +6,8 @@ from dateutil.parser import parse
 import os
 
 def parse_auth_log(file_path):
-    """Parse authentication log files into structured data"""
-    # Regular expression to match auth log entries
+    # Parse authentication log files into structured data
+    # Use regular expression to match auth log entries
     log_pattern = r'(\w+\s+\d+\s+\d+:\d+:\d+)\s+(\S+)\s+(\S+)(?:\[(\d+)\])?:\s+(.*)'
     
     data = []
@@ -27,9 +27,8 @@ def parse_auth_log(file_path):
     return pd.DataFrame(data)
 
 if __name__ == "__main__":
-    # Create logs directory if it doesn't exist
     os.makedirs("logs", exist_ok=True)
-    
+
     # Parse both log files
     normal_logs = parse_auth_log('auth_logs.txt')
     suspicious_logs = parse_auth_log('auth_logs_suspect.txt')
@@ -41,11 +40,11 @@ if __name__ == "__main__":
     # Combine the datasets
     all_logs = pd.concat([normal_logs, suspicious_logs], ignore_index=True)
     
-    # Save the processed data
+    # Save processed data
     all_logs.to_csv('logs/processed_logs.csv', index=False)
     print(f"Processed {len(all_logs)} log entries. Saved to logs/processed_logs.csv")
     
-    # Also save separate files for easy reference
+    # Save separate files for easy reference
     normal_logs.to_csv('logs/normal_logs.csv', index=False)
     suspicious_logs.to_csv('logs/suspicious_logs.csv', index=False)
     
