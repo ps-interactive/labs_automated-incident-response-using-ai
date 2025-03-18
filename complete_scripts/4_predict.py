@@ -12,7 +12,7 @@ from datetime import datetime
 
 class LogAnalyzer:
     def __init__(self, model_path='model'):
-        self.model = load_model(f'/home/pslearner/Desktop/ai-threat-detection/model/threat_detection_model')
+        self.model = load_model(f'/home/pslearner/Desktop/ai-threat-detection/model/threat_detection_model.keras')
         self.scaler = joblib.load(f'/home/pslearner/Desktop/ai-threat-detection/model/scaler.pkl')
         with open(f'/home/pslearner/Desktop/ai-threat-detection/model/feature_names.txt', 'r') as f:
             self.feature_names = [line.strip() for line in f.readlines()]
