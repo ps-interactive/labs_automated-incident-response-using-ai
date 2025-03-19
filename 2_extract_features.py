@@ -37,7 +37,7 @@ def extract_features(df):
 
     
 
-    # Extact log manipulation attempts
+    # Extract log manipulation attempts
     df['log_manipulation'] = df['message'].str.contains('rm -rf|sed -i|/var/log', case=False).astype(int)
 
     # Backdoor related
